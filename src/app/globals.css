@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #0b1020;
+  --body: #434c63;
+  --muted: #7a8397;
+  --blue: #2e7bf6;
+  --blue-deep: #1b56c9;
+  --blue-lite: #7faeff;
+  --blue-050: #eaf1fe;
+  --blue-100: #d3e2fd;
+  --canvas: #f4f7fc;
+  --line: #dce3ef;
+  --safe: #0e9f6e;
+  --dark: #0b1020;
+
+  --font-head: var(--font-schibsted), "Schibsted Grotesk", system-ui, sans-serif;
+  --font-body: var(--font-hanken), "Hanken Grotesk", system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-blue: var(--blue);
+  --color-blue-deep: var(--blue-deep);
+  --color-blue-lite: var(--blue-lite);
+  --color-blue-050: var(--blue-050);
+  --color-blue-100: var(--blue-100);
+  --color-canvas: var(--canvas);
+  --color-line: var(--line);
+  --color-safe: var(--safe);
+  --color-dark: var(--dark);
+
+  --font-head: var(--font-head);
+  --font-body: var(--font-body);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: #fff;
+  color: var(--body);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-head);
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+::selection {
+  background: var(--blue-100);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Staggered reveal-on-scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Marquee */
+.marquee-track {
+  animation: marquee 32s linear infinite;
+}
+
+.marquee-track[data-paused="true"] {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
