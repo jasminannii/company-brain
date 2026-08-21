@@ -3,28 +3,32 @@
 Marketing-Website für Company Brain — die DSGVO-sichere KI-Plattform für den
 Mittelstand im deutschsprachigen Raum.
 
-## Stack
+## Aufbau
 
-Next.js (App Router) · TypeScript · Tailwind CSS v4 · Lenis (Smooth Scroll)
+`site/index.html` — eine einzelne, in sich geschlossene Datei (HTML + CSS + JS
+inline). Externe Abhängigkeiten nur über CDN: Google Fonts (Schibsted Grotesk,
+Hanken Grotesk) und Lenis für den Smooth Scroll. Keine lokalen Assets, keine
+Build-Schritte.
 
-## Entwicklung
+## Lokal ansehen
 
 ```bash
-npm install
-npm run dev
+python3 -m http.server 8000 --directory site
 ```
 
-## Struktur
+Dann http://localhost:8000 öffnen.
 
-- `src/components/` — eine Komponente je Landingpage-Sektion (Hero, ProductTour,
-  Pricing, Personalizer, Waitlist, …)
-- `src/app/` — Routen (`/`, `/impressum`, `/datenschutz`)
-- `src/lib/constants.ts` — Demo-Link, Kontakt-E-Mail, geteilte Inhalte
+## Deployment
+
+Der Workflow `.github/workflows/deploy-pages.yml` veröffentlicht `site/`
+unverändert auf GitHub Pages — bei jedem Push auf `master`:
+https://jasminannii.github.io/company-brain/
 
 ## Offene To-dos
 
-- [ ] Formspree- oder Tally-Endpoint in `src/components/Waitlist.tsx`
-      (`FORM_ENDPOINT`) eintragen — aktuell läuft ein mailto-Fallback
-- [ ] Echtes Impressum & Datenschutzerklärung einsetzen (aktuell Platzhalter)
+- [ ] Formspree- oder Tally-Endpoint als `FORM_ENDPOINT` im Warteliste-Script
+      eintragen — ohne Endpoint läuft ein mailto-Fallback
+- [ ] Impressum & Datenschutz: aktuell Platzhalter-Links (`href="#"`) im Footer.
+      Für eine öffentlich erreichbare Seite in AT/DE ist ein Impressum Pflicht
 - [ ] Domain & finale E-Mail-Adresse festlegen
 - [ ] Echte Kundenlogos/Referenzen, sobald der Pilot läuft
