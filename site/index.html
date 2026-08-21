@@ -141,19 +141,17 @@
   .head h2{margin-bottom:16px;}
   .head p{font-size:1.12rem;line-height:1.6;}
 
-  /* Problem — Heute vs. Mit Company Brain */
-  .cmp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-  .cmp{background:#fff;border:1px solid var(--line-2);border-radius:var(--radius);padding:24px 24px 18px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform .25s var(--ease), box-shadow .25s ease;}
-  .cmp:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
-  .cmp-num{font-family:var(--font-display);font-weight:800;font-size:2.3rem;color:var(--warn);letter-spacing:-.03em;line-height:1;margin-bottom:4px;}
-  .cmp-num small{display:block;font-family:var(--font-body);font-size:.8rem;font-weight:500;color:var(--muted);letter-spacing:0;margin-top:6px;}
-  .cmp-row{display:flex;flex-direction:column;gap:4px;padding:14px 0 0;margin-top:14px;border-top:1px solid var(--line);}
-  .cmp-label{display:inline-flex;align-items:center;gap:6px;font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;}
-  .cmp-row.now .cmp-label{color:var(--warn);}
-  .cmp-row.fix .cmp-label{color:var(--blue);}
-  .cmp-label .cdot{width:6px;height:6px;border-radius:50%;background:currentColor;flex:none;}
-  .cmp-row p{font-size:.95rem;line-height:1.5;color:var(--muted);}
-  .cmp-row.fix p{color:var(--ink);font-weight:500;}
+  /* Problem — Zahl heute, Lösung darunter */
+  .cmp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .cmp{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px 30px;display:flex;flex-direction:column;transition:transform .25s var(--ease), box-shadow .25s ease, border-color .25s ease;}
+  .cmp:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--line-2);}
+  .cmp-num{font-family:var(--font-display);font-weight:800;font-size:2.9rem;color:var(--warn);letter-spacing:-.035em;line-height:1;margin-bottom:12px;}
+  .cmp-now{font-size:1.02rem;line-height:1.5;color:var(--ink-2);margin-bottom:24px;}
+  .cmp-fix{padding-top:20px;border-top:1px solid var(--line);}
+  .cmp-fix .cmp-label{display:block;font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--blue);margin-bottom:6px;}
+  .cmp-fix p{font-size:1.02rem;line-height:1.5;color:var(--ink);font-weight:600;}
+  /* Auf Desktop zwei Zeilen reservieren, damit die Trennlinien auf einer Höhe sitzen */
+  @media (min-width:861px){.cmp-now{min-height:3.1em;}}
   @media (max-width:860px){.cmp-grid{grid-template-columns:1fr;}}
 
   /* Steps — editorial big numbers */
@@ -717,41 +715,32 @@
     <div class="head reveal">
       <span class="eyebrow"><span class="dot"></span> Das Problem</span>
       <h2>Euer Wissen ist da. Nur findet es keiner.</h2>
-      <p>Bei 20 Büromitarbeitenden gehen so über 6.000 Stunden im Jahr verloren — mehr als drei Vollzeitstellen. Drei Zahlen zeigen, woran es liegt:</p>
+      <p>Bei 20 Büroangestellten: über 6.000 verlorene Stunden im Jahr.</p>
     </div>
 
     <div class="cmp-grid">
       <div class="cmp reveal">
-        <div class="cmp-num">7,5 Wochen<small>pro Jahr, pro Büroangestellte:r</small></div>
-        <div class="cmp-row now">
-          <span class="cmp-label"><span class="cdot"></span> Heute</span>
-          <p>gehen allein für die Suche nach Informationen drauf.</p>
-        </div>
-        <div class="cmp-row fix">
-          <span class="cmp-label"><span class="cdot"></span> Mit Company Brain</span>
-          <p>Eine Frage, eine Antwort in Sekunden — mit Quellenangabe.</p>
+        <div class="cmp-num">7,5 Wochen</div>
+        <p class="cmp-now">verliert jede:r pro Jahr mit Suchen.</p>
+        <div class="cmp-fix">
+          <span class="cmp-label">Mit Company Brain</span>
+          <p>Antwort in Sekunden, mit Quelle.</p>
         </div>
       </div>
       <div class="cmp reveal">
-        <div class="cmp-num">56 %<small>der Beschäftigten</small></div>
-        <div class="cmp-row now">
-          <span class="cmp-label"><span class="cdot"></span> Heute</span>
-          <p>kommen an nötige Infos nur heran, indem sie Kolleg:innen fragen. Ist die im Urlaub, steht die Arbeit.</p>
-        </div>
-        <div class="cmp-row fix">
-          <span class="cmp-label"><span class="cdot"></span> Mit Company Brain</span>
-          <p>Das Wissen liegt im Brain statt nur in Köpfen — abrufbar, auch im Urlaub.</p>
+        <div class="cmp-num">56 %</div>
+        <p class="cmp-now">kommen an Infos nur über Kolleg:innen.</p>
+        <div class="cmp-fix">
+          <span class="cmp-label">Mit Company Brain</span>
+          <p>Wissen im Brain statt nur im Kopf.</p>
         </div>
       </div>
       <div class="cmp reveal">
-        <div class="cmp-num">42 %<small>der Unternehmen</small></div>
-        <div class="cmp-row now">
-          <span class="cmp-label"><span class="cdot"></span> Heute</span>
-          <p>Beschäftigte nutzen private KI-Accounts im Job — Kundendaten im Gratis-Abo, ohne Vereinbarung.</p>
-        </div>
-        <div class="cmp-row fix">
-          <span class="cmp-label"><span class="cdot"></span> Mit Company Brain</span>
-          <p>Ein sicherer Zugang für alle — Hosting in Deutschland, keine Daten fürs Training.</p>
+        <div class="cmp-num">42 %</div>
+        <p class="cmp-now">der Firmen: private KI-Accounts im Job.</p>
+        <div class="cmp-fix">
+          <span class="cmp-label">Mit Company Brain</span>
+          <p>Ein sicherer Zugang für alle.</p>
         </div>
       </div>
     </div>
