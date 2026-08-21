@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BrainLogo } from "./BrainLogo";
 import { CONTACT_EMAIL } from "@/lib/constants";
 
@@ -11,12 +12,12 @@ export function Footer() {
         </a>
         <p className="text-sm text-muted">{CONTACT_EMAIL}</p>
         <nav className="flex gap-6 text-sm text-muted" aria-label="Rechtliches">
-          <a href="/impressum" className="hover:text-ink">
+          <Link href="/impressum" className="hover:text-ink">
             Impressum
-          </a>
-          <a href="/datenschutz" className="hover:text-ink">
+          </Link>
+          <Link href="/datenschutz" className="hover:text-ink">
             Datenschutz
-          </a>
+          </Link>
         </nav>
       </div>
     </footer>
