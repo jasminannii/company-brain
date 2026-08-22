@@ -1,6 +1,6 @@
-# Company Brain
+# brayyn
 
-Marketing-Website für Company Brain — die DSGVO-sichere KI-Plattform für den
+Marketing-Website für brayyn (brayyn.ai) — die DSGVO-sichere KI-Plattform für den
 Mittelstand im deutschsprachigen Raum.
 
 ## Aufbau
